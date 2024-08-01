@@ -2,11 +2,17 @@
 import React from "react";
 import Image from "next/image";
 import LandingComponent from "@/components/LandingComponent";
+import Projects from "@/components/Projects";
+import Newsletters from "@/components/Newsletters";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
     <main className="p-6">
       <LandingComponent />
+      {/* <Projects /> */}
+      <Newsletters />
+      <Footer />
     </main>
   );
 };
