@@ -21,7 +21,7 @@ const Newsletters = () => {
   return (
     <section className="mt-2 md:mt-10">
       <div className="flex px-4 flex-col md:flex-row justify-between items-center mb-6">
-        <h1 className="text-5xl md:text-5xl font-bold">news.</h1>
+        <h1 className="text-5xl md:text-5xl font-bold">past news.</h1>
         <Link
           href="/news"
           className="text-base md:text-[1.25rem] font-semibold text-white/90 flex link cursor-pointer hover:opacity-50"

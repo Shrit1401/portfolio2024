@@ -10,14 +10,15 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.shrit.io"), // Setting metadataBase here
-  title: "shrit ;)",
+  metadataBase: new URL("https://www.shrit.io"),
+  title: "shrit",
+
   description:
     "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.shrit.io",
+    url: "https://www.shrit.net",
     title: "Shrit's Wonderland of Cool Stuff",
     description:
       "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!",
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@shrit1401",
-    title: "shrit ;)",
+    title: "shrit ",
     description:
-      "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!",
+      "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. I write newsletter each week, telling about what crazy thing i am upto each week",
     images: [
       {
         url: MetadataImage.src,
@@ -54,21 +55,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="lowercase">
       <head>
-        <meta property="og:url" content="https://www.shrit.io" />
+        <meta property="og:url" content="https://www.shrit.net" />
         <meta property="og:image" content={MetadataImage.src} />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Shrit making cool stuff" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Shrit's Wonderland of Cool Stuff" />
+        <meta name="twitter:title" content="Shrit." />
         <meta
           name="twitter:description"
-          content="Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!"
+          content="Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. I write newsletter each week, telling about what crazy thing i am upto each week"
         />
         <meta name="twitter:image" content={MetadataImage.src} />
         <meta name="twitter:image:alt" content="Shrit making cool stuff" />
-        <link rel="canonical" href="https://www.shrit.io" />
+        <link rel="canonical" href="https://www.shrit.net" />
       </head>
       <body className={manrope.className}>{children}</body>
     </html>
