@@ -21,10 +21,8 @@ const LandingComponent = () => {
           <p>
             I started developing at 11, creating a random website about India
             that nobody saw. But that&apos;s where my passion for building
-            things began. Since then, I&apos;ve{" "}
-            <a href="/projects" className="link">
-              developed websites, apps, games, and designs.
-            </a>
+            things began. Since then, I&apos;ve developed websites, apps, games,
+            and designs.
           </p>
           <p>
             Now, I&apos;ve made over 80 tools, all free and open-source on{" "}
