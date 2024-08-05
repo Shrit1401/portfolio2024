@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="text-white py-4 flex flex-col md:flex-row md:justify-between text-center items-center gap-5 md:gap-0 justify-center">
+    <div className=" max-w-6xltext-white py-4 flex flex-col md:flex-row md:justify-between text-center items-center gap-5 md:gap-0 justify-center">
       <h1 className="text-4xl font-bold">shrit.</h1>
       <ul className="flex md:space-x-4 flex-col md:flex-row items-center text-center">
         <li className="lowercase font-semibold text-xl hover:text-[#4AC1F0] duration-200 ease-in-out">

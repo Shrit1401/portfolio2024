@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import img1 from "../../public/me/1.png";
 import img2 from "../../public/me/2.png";
 import img3 from "../../public/me/3.png";
@@ -7,6 +7,38 @@ import img4 from "../../public/me/4.png";
 import img5 from "../../public/me/5.png";
 
 const LandingComponent = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage("Email sent successfully!");
+      } else {
+        setMessage(data.error || "Something went wrong.");
+      }
+    } catch (error) {
+      setMessage("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="max-w-6xl mx-auto mt-3 md:mt-10 mb-10 md:mb-0">
       <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -19,10 +51,10 @@ const LandingComponent = () => {
             feeling when people actually find what I build helpful.
           </p>
           <p>
-            I started developing at 11, creating a random website about India
-            that nobody saw. But that&apos;s where my passion for building
-            things began. Since then, I&apos;ve developed websites, apps, games,
-            and designs.
+            I started developing at 11, creating a random websites that nobody
+            saw. But that&apos;s where my passion for building things began.
+            Since then, I&apos;vewebsites, apps, games, and designs plugins,
+            hardware tools anything which i think is cool.
           </p>
           <p>
             Now, I&apos;ve made over 80 tools, all free and open-source on{" "}
@@ -66,14 +98,20 @@ const LandingComponent = () => {
             email below. It takes a lot of effort to write these, so a little
             reading wouldn’t hurt, right?
           </p>
-          <form className="mt-2">
+          <form className="mt-2" onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="luffy@gmail.com"
-              className="w-full  px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
+              className="w-full px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <button className="btn">Submit</button>
+            <button className="btn mt-2" type="submit" disabled={loading}>
+              {loading ? "Sending..." : "Submit"}
+            </button>
           </form>
+          {message && <p className="mt-2 text-white">{message}</p>}
         </div>
         <div className="md:w-1/2 md:flex flex-col gap-4 hidden">
           <div className="flex-1 grid grid-cols-2 gap-4">

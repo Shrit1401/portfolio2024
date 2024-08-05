@@ -1,25 +1,11 @@
+import { News } from "@/lib/types";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const news = [
-  {
-    title: "week #1",
-    description:
-      "Figma ipsum component variant main layer. Inspect underline clip align vertical. Scale blur image polygon resizing clip share select project. Align vector connection layout flows layer polygon. Community figma image flatten vector italic. Italic align arrange.Figma ipsum component variant main layer. Inspect underline clip align vertical. Scale blur image polygon resizing clip share select project. Align vector connection layout flows layer polygon. Community figma image flatten vector italic. Italic align arrange.",
-    href: "/week-1",
-  },
-  {
-    title: "week #2",
-    description:
-      "Figma ipsum component variant main layer. Inspect underline clip align vertical. Scale blur image polygon resizing clip share select project. Align vector connection layout flows layer polygon. Community figma image flatten vector italic. Italic align arrange.Figma ipsum component variant main layer. Inspect underline clip align vertical. Scale blur image polygon resizing clip share select project. Align vector connection layout flows layer polygon. Community figma image flatten vector italic. Italic align arrange.",
-    href: "/week-2",
-  },
-];
-
-const Newsletters = () => {
+const Newsletters = ({ news }: { news: News[] }) => {
   return (
-    <section className="mt-2 md:mt-10">
+    <section className="max-w-6xl mx-auto mt-3 md:mt-10 mb-10 md:mb-0">
       <div className="flex px-4 flex-col md:flex-row justify-between items-center mb-6">
         <h1 className="text-5xl md:text-5xl font-bold">past news.</h1>
         <Link
@@ -31,7 +17,7 @@ const Newsletters = () => {
       </div>
       <div className="px-4">
         {news.map((item, index) => (
-          <Link key={index} href={item.href}>
+          <Link key={index} href={`/${item.slug.current}`}>
             <div className="mb-6 hover:bg-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
               <h2 className="text-2xl font-bold">{item.title}</h2>
               <p className="text-lg text-white/50 line-clamp">
