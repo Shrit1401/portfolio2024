@@ -28,7 +28,7 @@ const LandingComponent = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage("Email sent successfully!");
+        setMessage("You're in! 🎉");
       } else {
         setMessage(data.error || "Something went wrong.");
       }

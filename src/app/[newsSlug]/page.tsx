@@ -71,7 +71,7 @@ const NewsletterPage = () => {
           className="object-cover w-[50%] h-[100vh] rounded-lg"
         />
       </div>
-      <div className="my-10 w-full max-w-3xl mx-auto font-medium text-lg">
+      <div className="my-10 w-full max-w-3xl text-white/90 font-medium mx-auto text-lg leading-10">
         <PortableText
           value={news[0].body as unknown as TypedObject}
           components={RichTextComponent}

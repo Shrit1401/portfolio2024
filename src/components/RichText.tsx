@@ -39,7 +39,9 @@ export const RichTextComponent = {
       <h4 className="py-4 text-2xl font-bold">{children}</h4>
     ),
     p: ({ children }: any) => (
-      <p className="my-4 text-base leading-relaxed">{children}</p>
+      <p className="my-4 text-base font-bold text-gray-700 leading-relaxed">
+        {children}
+      </p>
     ),
     blockquote: ({ children }: any) => (
       <blockquote className="my-5 border-l-4 border-l-emphasize py-5 pl-5 italic">
@@ -57,7 +59,7 @@ export const RichTextComponent = {
         <Link
           href={value.href}
           rel={rel}
-          className="underline decoration-emphasize"
+          className="underline text-[#4AC1F0] decoration-emphasize"
         >
           {children}
         </Link>
