@@ -16,7 +16,7 @@ const Home = () => {
     const fetchNews = async () => {
       try {
         const newsData = await getNews();
-        setNews(newsData);
+        setNews(newsData.slice(0, 2));
       } catch (err) {
         setError("Failed to fetch news.");
         console.error(err);

@@ -12,6 +12,7 @@ export async function POST(req: Request) {
       from: "Shrit <coolspace@shrit.in>",
       to: [email],
       subject: "Hello World - Shrit",
+      reply_to: "shrit1401@gmail.com",
       react: EmailTemplate(),
     });
 
