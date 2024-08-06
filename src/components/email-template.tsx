@@ -5,6 +5,7 @@ import {
   Head,
   Html,
   Img,
+  Link,
   Preview,
   Section,
   Text,
@@ -43,20 +44,9 @@ export const EmailTemplate = () => (
             alt="A cringe thumbnail I made for a YouTube video which I think is cool lol, check out the video here:"
             style={{ marginBottom: "20px", width: "100%", borderRadius: "8px" }}
           />
-          <Button
-            href="https://www.youtube.com/watch?v=gFWo53orfg8"
-            style={{
-              backgroundColor: "#111",
-              color: "#ffffff",
-              padding: "10px 20px",
-              borderRadius: "4px",
-              textDecoration: "none",
-              textAlign: "center",
-              display: "inline-block",
-            }}
-          >
+          <Link href="https://www.youtube.com/watch?v=gFWo53orfg8">
             Check out the video here
-          </Button>
+          </Link>
           <Text>- Shrit</Text>
         </Section>
       </Container>

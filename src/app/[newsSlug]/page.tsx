@@ -19,6 +19,9 @@ const NewsletterPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [email, setEmail] = useState("");
+  const [loadingEmail, setLoadingEmail] = useState(false);
+
   useEffect(() => {
     const fetchNews = async () => {
       if (typeof slug === "string") {
@@ -42,6 +45,33 @@ const NewsletterPage = () => {
   if (loading) return <div>...</div>;
   if (error) return <div>{error}</div>;
   if (!news) return <div>News not found</div>;
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoadingEmail(true);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("You're in! 🎉");
+      } else {
+        alert(data.error || "Something went wrong.");
+      }
+    } catch (error) {
+      alert("Something went wrong.");
+    } finally {
+      setLoadingEmail(false);
+    }
+  };
 
   return (
     <main className="my-4 px-4">
@@ -68,14 +98,35 @@ const NewsletterPage = () => {
         <img
           src={urlFor(news[0].image).url()}
           alt="Blog post Image"
-          className="object-cover w-[50%] h-[100vh] rounded-lg"
+          className="object-cover md:w-[50%] h-[100vh] rounded-lg"
         />
       </div>
-      <div className="my-10 w-full max-w-3xl text-white/90 font-medium mx-auto text-lg leading-10">
+      <div className="md:my-10 w-full max-w-3xl text-white/90 font-medium mx-auto text-lg leading-10">
         <PortableText
           value={news[0].body as unknown as TypedObject}
           components={RichTextComponent}
         />
+        <div className="my-6 border border-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
+          <div>
+            <h2 className="text-2xl font-bold">Sign Up For Such Newsletter</h2>
+            <p className="text-lg text-white/50 line-clamp">
+              Get the latest updates on what i am upto each week
+            </p>
+          </div>
+          <form className="mt-2" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="luffy@gmail.com"
+              className="w-full px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button className="btn mt-2" type="submit" disabled={loadingEmail}>
+              {loadingEmail ? "Sending..." : "Submit"}
+            </button>
+          </form>
+        </div>
       </div>
       <Footer />
     </main>
