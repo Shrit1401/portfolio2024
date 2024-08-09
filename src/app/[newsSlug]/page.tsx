@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import { RichTextComponent } from "@/components/RichText";
 import { TypedObject } from "sanity";
+import Loading from "@/components/Loading";
 
 const NewsletterPage = () => {
   const params = useParams();
@@ -42,7 +43,12 @@ const NewsletterPage = () => {
     }
   }, [slug]);
 
-  if (loading) return <div>...</div>;
+  if (loading)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loading />
+      </div>
+    );
   if (error) return <div>{error}</div>;
   if (!news) return <div>News not found</div>;
 
