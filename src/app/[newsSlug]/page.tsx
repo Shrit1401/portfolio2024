@@ -119,19 +119,11 @@ const NewsletterPage = () => {
               Get the latest updates on what i am upto each week
             </p>
           </div>
-          <form className="mt-2" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="luffy@gmail.com"
-              className="w-full px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button className="btn mt-2" type="submit" disabled={loadingEmail}>
-              {loadingEmail ? "Sending..." : "Submit"}
-            </button>
-          </form>
+          <iframe
+            src="https://shrit.substack.com/embed"
+            className="rounded-lg border-white"
+            scrolling="no"
+          ></iframe>
         </div>
       </div>
       <Footer />
