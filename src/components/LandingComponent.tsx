@@ -98,19 +98,11 @@ const LandingComponent = () => {
             email below. It takes a lot of effort to write these, so a little
             reading wouldn’t hurt, right?
           </p>
-          <form className="mt-2" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="luffy@gmail.com"
-              className="w-full px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button className="btn mt-2" type="submit" disabled={loading}>
-              {loading ? "Sending..." : "Submit"}
-            </button>
-          </form>
+          <iframe
+            src="https://shrit.substack.com/embed"
+            className="rounded-lg border-white"
+            scrolling="no"
+          ></iframe>
           {message && <p className="mt-2 text-white">{message}</p>}
         </div>
         <div className="md:w-1/2 md:flex flex-col gap-4 hidden">
