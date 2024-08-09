@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 export async function getNews() {
   try {
     const data = await client.fetch(`*[_type == "news"]`);
-    return data;
+    return data.reverse();
   } catch (error) {
     console.error(error);
   }
