@@ -12,6 +12,10 @@ body {
   color: #fff;
 }
 
+body.painify {
+  background: #161616;
+}
+
 .btn {
   @apply w-full font-bold mt-2 p-2 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors hover:bg-white/60 focus:outline-none duration-200 ease-in-out;
 }
