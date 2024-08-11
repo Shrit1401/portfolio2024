@@ -2,8 +2,10 @@
 
 import { client } from "@/sanity/lib/client";
 import prisma from "./db/db";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function getNews() {
+  noStore();
   try {
     const data = await client.fetch(`*[_type == "news"]`);
     return data.reverse();
@@ -13,6 +15,7 @@ export async function getNews() {
 }
 
 export async function getNewsBySlug(slug: string) {
+  noStore();
   try {
     const data = await client.fetch(
       `*[_type == "news" && slug.current == $slug]`,
