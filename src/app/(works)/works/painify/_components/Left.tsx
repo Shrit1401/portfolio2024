@@ -13,9 +13,9 @@ const PainifyLeft = () => {
             Grow From Your Pain
           </h1>
           <p className="text-white/50 text-lg">
-            Work on your self and yourself, push your limits through the secrets
-            you tell us, growing from pain is the best way to grow it's a best
-            way for you to start getting disciplined, no pain no gain bro
+            Work on yourself and push your limits through the secrets you tell
+            us. Growing from pain is the best way to grow; it&#39;s the best way
+            for you to start getting disciplined. No pain, no gain, bro.
           </p>
 
           <div className="flex items-center">
