@@ -1,7 +1,6 @@
 "use server";
 
 import { client } from "@/sanity/lib/client";
-import prisma from "./db/db";
 import { unstable_noStore as noStore } from "next/cache";
 
 export async function getNews() {
@@ -21,19 +20,6 @@ export async function getNewsBySlug(slug: string) {
       `*[_type == "news" && slug.current == $slug]`,
       { slug }
     );
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-export async function createpainifyuser(email: string) {
-  try {
-    const data = await prisma.painify.create({
-      data: {
-        email,
-      },
-    });
     return data;
   } catch (error) {
     console.error(error);

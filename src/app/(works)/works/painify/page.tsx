@@ -5,7 +5,7 @@ import painifyImage from "@/../public/painify/sideimg.png";
 import Image from "next/image";
 import PainifySteps from "./_components/Steps";
 import { PainifySlider } from "./_components/PainifySlider";
-import { createpainifyuser } from "@/lib/server";
+import { createpainifyuser } from "@/lib/prismaserver";
 
 const Page = () => {
   const [email, setEmail] = React.useState("");

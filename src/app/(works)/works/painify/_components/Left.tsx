@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import painifyLogo from "@/../public/painify/painifyLogo.svg";
-import { createpainifyuser } from "@/lib/server";
+import { createpainifyuser } from "@/lib/prismaserver";
 
 const PainifyLeft = () => {
   const [email, setEmail] = React.useState("");
