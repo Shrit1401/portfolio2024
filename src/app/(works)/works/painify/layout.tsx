@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { DM_Sans, Manrope } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "@/app/globals.css";
 import "swiper/swiper-bundle.css";
-
-import MetadataImage from "../../public/meta/og-img.png";
 
 const dm_sans = DM_Sans({
   subsets: ["latin"],

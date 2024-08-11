@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
-import "swiper/swiper-bundle.css";
+import "@/app/globals.css";
 
-import MetadataImage from "../../public/meta/og-img.png";
+import "swiper/swiper-bundle.css";
 
 const manrope = Manrope({
   subsets: ["latin"],

@@ -112,9 +112,11 @@ const NewsletterPage = () => {
           value={news[0].body as unknown as TypedObject}
           components={RichTextComponent}
         />
-        <div className="my-6 border border-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
+        <div className="flex flex-col space-y-3 items-center   my-6 border border-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
           <div>
-            <h2 className="text-2xl font-bold">Sign Up For Such Newsletter</h2>
+            <h2 className="text-2xl font-bold text-center">
+              Sign Up For Such Newsletter
+            </h2>
             <p className="text-lg text-white/50 line-clamp">
               Get the latest updates on what i am upto each week
             </p>
