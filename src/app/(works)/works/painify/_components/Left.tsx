@@ -1,8 +1,30 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import painifyLogo from "@/../public/painify/painifyLogo.svg";
+import { createpainifyuser } from "@/lib/server";
 
 const PainifyLeft = () => {
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    const data = await createpainifyuser(email);
+    if (data) {
+      setMessage("You are in 🚀");
+    } else {
+      setMessage("User already exists with this email");
+    }
+    setEmail("");
+    setLoading(false);
+  };
+
   return (
     <div className="flex flex-col md:h-[100vh] justify-between w-full md:w-[45%] p-6 md:p-8 space-y-8">
       <Image src={painifyLogo} alt="Painify Logo" className="w-32 md:w-40" />
@@ -21,13 +43,22 @@ const PainifyLeft = () => {
           <div className="flex flex-col md:flex-row items-center">
             <input
               type="email"
+              value={email}
+              onChange={handleEmail}
               placeholder="seriousshrit@gmail.com"
               className="p-2 bg-transparent text-white border-b border-white/50 md:w-auto w-full focus:outline-none md:flex-grow"
             />
-            <button className="mt-4 md:mt-0 md:ml-4 bg-white text-black px-4 py-2 rounded-md font-medium">
-              Join now
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className="mt-4 md:mt-0 md:ml-4 bg-white text-black px-4 py-2 rounded-md font-medium"
+            >
+              {loading ? "Loading..." : "Get Started"}
             </button>
           </div>
+          {message && (
+            <p className="text-white text-sm mt-2 text-center">{message}</p>
+          )}
           <h1 className="text-xl md:text-2xl md:text-left text-center font-semibold text-white mt-4 md:mt-0">
             Scroll Down to see more
           </h1>

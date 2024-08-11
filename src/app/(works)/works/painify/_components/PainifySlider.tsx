@@ -32,10 +32,10 @@ export const PainifySlider = () => {
   useEffect(() => {
     let lastTime = 0;
     const animate = (time: number) => {
-      if (time - lastTime > 100) {
-        // Increased to 100ms for slower animation
+      if (time - lastTime > 16) {
+        // Changed to ~60fps for smoother animation
         setTranslateX((prevTranslateX) => {
-          const newTranslateX = prevTranslateX - 0.2; // Reduced to 0.2 for much slower movement
+          const newTranslateX = prevTranslateX - 0.5; // Increased speed from 0.2 to 0.5
           if (-newTranslateX >= imageWidth * originalImages.length) {
             // Reset when one set of original images has scrolled
             return prevTranslateX + imageWidth * originalImages.length;
@@ -53,7 +53,7 @@ export const PainifySlider = () => {
 
   return (
     <div
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full h-[80vh] overflow-hidden hidden md:flex"
       ref={containerRef}
     >
       <div
@@ -76,8 +76,8 @@ export const PainifySlider = () => {
               <Image
                 src={img}
                 alt={`Slide ${(index % originalImages.length) + 1}`}
-                layout="fill"
-                objectFit="contain"
+                fill
+                style={{ objectFit: "cover" }}
                 className="px-2 border border-white/50 rounded-[0.5rem]"
               />
             </div>

@@ -1,11 +1,33 @@
+"use client";
 import React from "react";
 import PainifyLeft from "./_components/Left";
 import painifyImage from "@/../public/painify/sideimg.png";
 import Image from "next/image";
 import PainifySteps from "./_components/Steps";
 import { PainifySlider } from "./_components/PainifySlider";
+import { createpainifyuser } from "@/lib/server";
 
 const Page = () => {
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    const data = await createpainifyuser(email);
+    if (data) {
+      setMessage("You are in 🚀");
+    } else {
+      setMessage("User already exists with this email");
+    }
+    setEmail("");
+    setLoading(false);
+  };
+
   return (
     <main className="pb-8">
       <div className="min-h-[100vh] w-full flex flex-col md:justify-between md:flex-row">
@@ -51,13 +73,22 @@ const Page = () => {
         <div className="flex flex-col md:flex-row items-center w-full">
           <input
             type="email"
+            value={email}
+            onChange={handleEmail}
             placeholder="seriousshrit@gmail.com"
             className="p-2 bg-transparent text-white border-b border-white/50 focus:outline-none flex-grow"
           />
-          <button className="mt-4 md:mt-0 md:ml-4 bg-white text-black px-4 py-2 rounded-md font-medium">
-            Join Now
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="mt-4 md:mt-0 md:ml-4 bg-white text-black px-4 py-2 rounded-md font-medium"
+          >
+            {loading ? "Loading..." : "Get Started"}
           </button>
         </div>
+        {message && (
+          <p className="text-white text-sm mt-2 text-center">{message}</p>
+        )}
       </div>
     </main>
   );
