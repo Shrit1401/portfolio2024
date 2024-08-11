@@ -3,14 +3,12 @@ import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
-  const searchParams = url.searchParams.toString();
-  let hostname = req.headers;
+  const hostname = req.headers.get("host") || "";
 
+  // Extract the subdomain by removing the base domain
   const subdomain = hostname
-    .get("host")
-    ?.split(`${process.env.NEXT_PUBLIC_DOMAIN}`)
-    .map((s) => s.split("."))[0]
-    .filter(Boolean)[0];
+    .replace(`.${process.env.NEXT_PUBLIC_DOMAIN}`, "")
+    .replace("www.", ""); // Remove 'www.' if present
 
   if (subdomain === "painify") {
     url.pathname = `/works/painify${url.pathname}`;
