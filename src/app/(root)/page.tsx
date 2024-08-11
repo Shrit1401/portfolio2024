@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import LandingComponent from "@/components/LandingComponent";
 import Newsletters from "@/components/Newsletters";
 import Footer from "@/components/Footer";
-import Projects from "@/components/Projects";
-import { News, Project } from "@/lib/types";
+import { News } from "@/lib/types";
 import { getNews } from "@/lib/server";
 
 const Home = () => {
@@ -33,7 +32,6 @@ const Home = () => {
   return (
     <main className="p-6">
       <LandingComponent />
-      {/* <Projects /> */}
       {!loading && <Newsletters news={news.slice(0, 2)} />}
       <Footer />
     </main>
