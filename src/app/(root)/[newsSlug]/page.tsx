@@ -89,7 +89,7 @@ const NewsletterPage = () => {
       </Link>
       <div className="mt-10 flex flex-col items-center w-full">
         <div className="flex items-center flex-col gap-5 mb-5">
-          <h1 className="text-5xl items-center md:text-8xl font-bold">
+          <h1 className="text-5xl items-center md:text-6xl text-center font-bold">
             {news[0].title}
           </h1>
           <p className="text-lg font-bold text-white/50">
