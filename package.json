@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspark/use-formspark": "^0.1.39",
     "@lexical/react": "^0.16.1",
     "@prisma/client": "^5.18.0",
     "@react-email/components": "0.0.22",

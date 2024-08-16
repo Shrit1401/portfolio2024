@@ -5,37 +5,32 @@ import img2 from "../../public/me/2.png";
 import img3 from "../../public/me/3.png";
 import img4 from "../../public/me/4.png";
 import img5 from "../../public/me/5.png";
+import { useFormspark } from "@formspark/use-formspark";
+
+const FORMSPARK_FORM_ID = "aoe0nnAOo";
 
 const LandingComponent = () => {
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [submit, submitting] = useFormspark({
+    formId: FORMSPARK_FORM_ID,
+  });
+
+  const [confirm, setConfirm] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setMessage("");
+    setConfirm("");
 
     try {
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      const response = await submit({ email });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage("You're in! 🎉");
+      if (response) {
+        setConfirm("You're in! 🎉");
       } else {
-        setMessage(data.error || "Something went wrong.");
+        setConfirm("Something went wrong.");
       }
     } catch (error) {
-      setMessage("Something went wrong.");
-    } finally {
-      setLoading(false);
+      setConfirm("Something went wrong.");
     }
   };
 
@@ -98,12 +93,22 @@ const LandingComponent = () => {
             email below. It takes a lot of effort to write these, so a little
             reading wouldn’t hurt, right?
           </p>
-          <iframe
-            src="https://shrit.substack.com/embed"
-            className="rounded-lg border-white"
-            scrolling="no"
-          ></iframe>
-          {message && <p className="mt-2 text-white">{message}</p>}
+          <form className="mt-2" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="message"
+              id="message"
+              placeholder="luffy@gmail.com"
+              className="w-full px-3 py-2 bg-black/10 text-white rounded-lg border border-white/30 outline-none placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button className="btn mt-2" type="submit" disabled={submitting}>
+              {submitting ? "Sending..." : "Submit"}
+            </button>
+          </form>
+          {confirm && <p className="mt-2 text-white">{confirm}</p>}
         </div>
         <div className="md:w-1/2 md:flex flex-col gap-4 hidden">
           <div className="flex-1 grid grid-cols-2 gap-4">
