@@ -15,6 +15,11 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
+  if (subdomain == "valomusic") {
+    url.pathname = `/works/valomusic${url.pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
   return NextResponse.next();
 }
 
