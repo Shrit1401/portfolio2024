@@ -81,7 +81,7 @@ const ValoHomePage: React.FC = () => {
           ref={musicSectionRef}
         >
           <h3 className="text-2xl capitalize font-semibold mb-4 text-red-500">
-            {selectedAgent.agent}'s Music:
+            {selectedAgent.agent}&apos;s Music:
           </h3>
           <div className="relative">
             <div

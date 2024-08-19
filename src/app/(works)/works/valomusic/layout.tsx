@@ -10,37 +10,37 @@ const dm_sans = DM_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.shrit.in"),
-  title: "shrit",
+  title: "ValoMusic",
 
   description:
-    "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!",
+    "Welcome to ValoMusic! Discover the music of your favorite Valorant agents.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.shrit.in",
-    title: "Shrit's Wonderland of Cool Stuff",
+    title: "ValoMusic - Music from Valorant Agents",
     description:
-      "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. Come explore my world of awesome creations and let's have some fun!",
+      "Welcome to ValoMusic! Discover the music of your favorite Valorant agents.",
     images: [
       {
-        url: "https://www.shrit.in/meta/og-img.png",
+        url: "https://www.shrit.in/meta/valoogimg.png",
         width: 1200,
         height: 630,
-        alt: "Shrit making cool stuff",
+        alt: "Music of Valorant Agents",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@shrit1401",
-    title: "shrit ",
+    site: "@valomusic",
+    title: "ValoMusic",
     description:
-      "Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. I write newsletter each week, telling about what crazy thing i am upto each week",
+      "Welcome to ValoMusic! Discover the music of your favorite Valorant agents.",
     images: [
       {
-        url: "https://www.shrit.in/meta/og-img.png",
-        alt: "Shrit making cool stuff",
+        url: "https://www.shrit.in/meta/valoogimg.png",
+        alt: "Music of Valorant Agents",
       },
     ],
   },
@@ -57,23 +57,23 @@ export default function RootLayout({
         <meta property="og:url" content="https://www.shrit.in" />
         <meta
           property="og:image"
-          content={"https://www.shrit.in/meta/og-img.png"}
+          content={"https://www.shrit.in/meta/valoogimg.png"}
         />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Shrit making cool stuff" />
+        <meta property="og:image:alt" content="Music of Valorant Agents" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Shrit." />
+        <meta name="twitter:title" content="ValoMusic" />
         <meta
           name="twitter:description"
-          content="Hey there! I'm Shrit - a developer, designer, and marketer all rolled into one. I write newsletter each week, telling about what crazy thing i am upto each week"
+          content="Welcome to ValoMusic! Discover the music of your favorite Valorant agents."
         />
         <meta
           name="twitter:image"
-          content={"https://www.shrit.in/meta/og-img.png"}
+          content={"https://www.shrit.in/meta/valoogimg.png"}
         />
-        <meta name="twitter:image:alt" content="Shrit making cool stuff" />
+        <meta name="twitter:image:alt" content="Music of Valorant Agents" />
         <link rel="canonical" href="https://www.shrit.in" />
         <script
           defer
