@@ -10,11 +10,6 @@ export function middleware(req: NextRequest) {
     .replace(`.${process.env.NEXT_PUBLIC_DOMAIN}`, "")
     .replace("www.", ""); // Remove 'www.' if present
 
-  if (subdomain === "painify") {
-    url.pathname = `/works/painify${url.pathname}`;
-    return NextResponse.rewrite(url);
-  }
-
   if (subdomain == "valomusic") {
     url.pathname = `/works/valomusic${url.pathname}`;
     return NextResponse.rewrite(url);
