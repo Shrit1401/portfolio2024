@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 
 const NewsFullPage = () => {
   const [news, setNews] = useState<News[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -18,8 +17,6 @@ const NewsFullPage = () => {
       } catch (err) {
         setError("Failed to fetch news.");
         console.error(err);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -40,8 +37,12 @@ const NewsFullPage = () => {
           <h1 className="text-5xl md:text-5xl font-bold text-center">news</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
             {news.map((item, index) => (
-              <Link key={index} href={`/${item.slug.current}`}>
-                <div className="mb-6 border border-white/10 hover:bg-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
+              <Link
+                key={index}
+                href={item.url ? item.url : `/${item.slug.current}`}
+                target={item.url ? "_blank" : "_self"}
+              >
+                <div className="mb-6 border border-white/10 hover:bg-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer h-full">
                   <h2 className="text-2xl font-bold">{item.title}</h2>
                   <p className="text-lg text-white/50 line-clamp">
                     {item.description}

@@ -7,7 +7,12 @@ export async function getNews() {
   noStore();
   try {
     const data = await client.fetch(`*[_type == "news"]`);
-    return data.reverse();
+
+    data.sort(
+      (a: { _createdAt: string }, b: { _createdAt: string }) =>
+        new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
+    );
+    return data;
   } catch (error) {
     console.error(error);
   }

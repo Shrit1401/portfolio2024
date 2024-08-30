@@ -22,6 +22,16 @@ export const news = defineType({
       type: "string",
     }),
     defineField({
+      name: "needsPage",
+      type: "boolean",
+      title: "Needs A Page?",
+    }),
+    defineField({
+      name: "url",
+      type: "url",
+    }),
+
+    defineField({
       name: "image",
       type: "image",
       options: {

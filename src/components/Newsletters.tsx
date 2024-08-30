@@ -17,7 +17,11 @@ const Newsletters = ({ news }: { news: News[] }) => {
       </div>
       <div className="px-4">
         {news.map((item, index) => (
-          <Link key={index} href={`/${item.slug.current}`}>
+          <Link
+            key={index}
+            href={item.url ? item.url : `/${item.slug.current}`}
+            target={item.url ? "_blank" : "_self"}
+          >
             <div className="mb-6 hover:bg-white/10 p-4 rounded-lg transition-all duration-200 ease-in-out cursor-pointer">
               <h2 className="text-2xl font-bold">{item.title}</h2>
               <p className="text-lg text-white/50 line-clamp">

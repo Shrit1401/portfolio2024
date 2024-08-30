@@ -10,7 +10,9 @@ export interface News {
     url: string;
     alt: string;
   };
-  publishedAt: string; // Date string
+  needsPage: boolean;
+  url: string;
+  publishedAt: string;
   body: string;
 }
 
