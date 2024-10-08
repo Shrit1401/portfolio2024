@@ -5,6 +5,7 @@ import Newsletters from "@/components/Newsletters";
 import Footer from "@/components/Footer";
 import { News } from "@/lib/types";
 import { getNews } from "@/lib/server";
+import Redirect from "@/components/Redirect";
 
 const Home = () => {
   const [news, setNews] = useState<News[]>([]);
@@ -32,6 +33,7 @@ const Home = () => {
   return (
     <main className="p-6">
       <LandingComponent />
+      {/* <Redirect />/ */}
       {!loading && <Newsletters news={news.slice(0, 2)} />}
       <Footer />
     </main>

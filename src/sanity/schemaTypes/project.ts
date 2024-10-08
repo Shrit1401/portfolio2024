@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const project = defineType({
-  title: "Project",
-  name: "project",
+export const projects = defineType({
+  title: "Projects",
+  name: "projects",
   type: "document",
   fields: [
     defineField({
@@ -10,44 +10,33 @@ export const project = defineType({
       type: "string",
     }),
     defineField({
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-    }),
-    defineField({
       name: "description",
       type: "string",
     }),
+
     defineField({
-      name: "image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
+      name: "year",
+      type: "number",
+    }),
+
+    defineField({
+      name: "usefullinks",
+      type: "array",
+      of: [
         {
-          name: "alt",
-          type: "string",
-          title: "Alternative Text",
+          type: "object",
+          fields: [
+            {
+              name: "name",
+              type: "string",
+            },
+            {
+              name: "link",
+              type: "url",
+            },
+          ],
         },
       ],
     }),
-    defineField({
-      name: "url",
-      type: "url",
-    }),
-    defineField({
-      name: "body",
-      type: "blockContent",
-    }),
   ],
-  preview: {
-    select: {
-      title: "title",
-      media: "image",
-    },
-  },
 });

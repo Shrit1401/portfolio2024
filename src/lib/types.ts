@@ -21,12 +21,17 @@ export interface Project {
   type: "project";
   title: string;
   description: string;
+  year: number;
+  usefullinks: {
+    name: string;
+    link: string;
+  }[];
+}
 
-  slug: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-  url: string;
-  body: string;
+export interface Past {
+  id: string;
+  type: "past";
+  title: string;
+  description: string;
+  year: string;
 }

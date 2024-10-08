@@ -1,10 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import img1 from "../../public/me/1.png";
-import img2 from "../../public/me/2.png";
-import img3 from "../../public/me/3.png";
-import img4 from "../../public/me/4.png";
-import img5 from "../../public/me/5.png";
+import img from "../../public/samplenews.png";
 import { useFormspark } from "@formspark/use-formspark";
 
 const FORMSPARK_FORM_ID = "aoe0nnAOo";
@@ -41,57 +37,55 @@ const LandingComponent = () => {
       </h1>
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-1/2 font-[600] text-base md:text-[1.25rem] text-white/90 flex flex-col gap-5 lowercase md:leading-loose">
+          <p>i'm just a guy that loves creating things. </p>
           <p>
-            I love building new things—or maybe it&apos;s just the warm fuzzy
-            feeling when people actually find what I build helpful.
-          </p>
-          <p>
-            I started developing at 11, creating a random websites that nobody
-            saw. But that&apos;s where my passion for building things began.
-            Since then, I&apos;vewebsites, apps, games, and designs plugins,
-            hardware tools anything which i think is cool.
-          </p>
-          <p>
-            Now, I&apos;ve made over 80 tools, all free and open-source on{" "}
-            <a
-              href="https://github.com/Shrit1401"
-              className="link"
-              target="_blank"
-            >
-              GitHub
+            Since I was 7, computers have been my constant passion. It all began
+            with playing games on{" "}
+            <a href="https://www.friv.com/" className="link" target="_blank">
+              Friv
             </a>
-            —everything is there, no filter.
+            , especially Fire Boy and Water Girl. I was instantly hooked.
           </p>
           <p>
-            I&apos;ve built tons of tools, including{" "}
+            By the time I hit 12, things got serious. I discovered how to create
+            basic websites, and that was it —I was addicted! From there, I
+            started building websites, apps,{" "}
             <a
-              href="https://www.clientbase.io"
+              href="https://www.amity.edu/ais/aisv1/ioe.asp"
               className="link"
               target="_blank"
             >
-              ClientBase
+              attending competitions
+            </a>
+            , exploring anything I could create with a computer.
+          </p>
+          <p>
+            Now at 18, my obsession with coding and creating hasn't slowed down
+            one bit. But here's the twist—building{" "}
+            <a href="./projects" className="link">
+              crazy tools
             </a>{" "}
-            (helping agencies manage their clients easily), had a sort-of
-            meeting with Dell’s CEO, visited Adobe’s office for a hackathon,
-            gained 10+ personal clients generating over ₹1 lakh in revenue, and
-            was part of S5 in Buildspace.
+            is fun, but I quickly realized it’s not enough to keep the wheels
+            turning. You need to bring in some cash.
           </p>
           <p>
-            There&apos;s a bunch more stuff like this—scroll down to see my
-            projects, some I&apos;m proud of, others not so much.{" "}
-            <a href="https://x.com/shrit1401" className="link" target="_blank">
-              I&apos;m also very active on X.
+            Earlier this year, I joined an overseas agency, It was a
+            game-changing experience, where I generated over ₹1 lakh in revenue
+            for the agency.{" "}
+            <a href="./past" className="link">
+              Although I eventually moved on
             </a>
+            , my passion for creating hasn’t wavered one bit.
           </p>
           <p>
-            I&apos;ve won many awards at school and soon became the nerdy guy
-            who knows how to handle computers. You can check out some photos:)
+            I even started a YouTube channel to showcase all my wild ideas and
+            inventions.
           </p>
           <p>
-            I like to write about what I&apos;m building, my learnings, and life
-            advice (lol) each week. If you want these in your inbox, drop your
-            email below. It takes a lot of effort to write these, so a little
-            reading wouldn’t hurt, right?
+            I stay connected through my weekly newsletter, where I share
+            everything—from what I’m working on, to life lessons and the ups and
+            downs of my journey. Want to be a part of it? Drop your email below,
+            and I’ll send it straight to your inbox!
           </p>
           <form className="mt-2" onSubmit={handleSubmit}>
             <input
@@ -109,68 +103,11 @@ const LandingComponent = () => {
             </button>
           </form>
           {confirm && <p className="mt-2 text-white">{confirm}</p>}
+
+          <Image src={img} className="rounded-lg md:hidden" alt="me" />
         </div>
-        <div className="md:w-1/2 md:flex flex-col gap-4 hidden">
-          <div className="flex-1 grid grid-cols-2 gap-4">
-            <div className="bg-black rounded-lg overflow-hidden relative">
-              <Image
-                src={img1}
-                alt="Young me at my birthday party"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-              <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2 w-full font-semibold text-center filter backdrop-blur-md">
-                Young me at my birthday party
-              </div>
-            </div>
-            <div className="bg-black rounded-lg overflow-hidden relative">
-              <Image
-                src={img2}
-                alt="My hair wasn't like this"
-                fill
-                className="object-cover object-bottom"
-              />
-              <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2 w-full font-semibold text-center filter backdrop-blur-md">
-                My hair isn&apos;t like this
-              </div>
-            </div>
-          </div>
-          <div className="bg-black rounded-lg overflow-hidden relative flex-1">
-            <Image
-              src={img3}
-              alt="A talk with Michael Dell (CEO of Dell)"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2 w-full font-semibold text-center filter backdrop-blur-md">
-              A talk with Michael Dell (CEO of Dell)
-            </div>
-          </div>
-          <div className="flex-1 grid grid-cols-2 gap-4">
-            <div className="bg-black rounded-lg overflow-hidden relative">
-              <Image
-                src={img4}
-                alt="Adobe office"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2 w-full font-semibold text-center filter backdrop-blur-md">
-                Adobe office
-              </div>
-            </div>
-            <div className="bg-black rounded-lg overflow-hidden relative">
-              <Image
-                src={img5}
-                alt="All of my awards, for flexing"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-2 w-full font-semibold text-center filter backdrop-blur-md">
-                All of my awards, for flexing
-              </div>
-            </div>
-          </div>
+        <div className="md:w-1/2 md:flex flex-col gap-4 hidden ">
+          <Image src={img} className="rounded-lg" alt="me" />
         </div>
       </div>
     </section>
