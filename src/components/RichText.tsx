@@ -6,14 +6,15 @@ export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative my-4 h-96 w-full">
+        <figure className="relative my-4 h-96 w-full">
           <Image
             className="object-contain rounded-lg"
             src={urlFor(value).url()}
-            alt="Blog post Image"
+            alt={value.alt || "Blog post Image"}
             fill
           />
-        </div>
+          {value.caption && <figcaption>{value.caption}</figcaption>}
+        </figure>
       );
     },
   },
@@ -60,6 +61,7 @@ export const RichTextComponent = {
           href={value.href}
           rel={rel}
           className="underline text-[#4AC1F0] decoration-emphasize"
+          title={value.title || "Link"}
         >
           {children}
         </Link>

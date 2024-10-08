@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.shrit.in/
+
+# Sitemaps
+Sitemap: https://www.shrit.in/sitemap.xml

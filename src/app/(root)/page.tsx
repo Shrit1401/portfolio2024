@@ -32,10 +32,16 @@ const Home = () => {
 
   return (
     <main className="p-6">
-      <LandingComponent />
-      {/* <Redirect />/ */}
-      {!loading && <Newsletters news={news.slice(0, 2)} />}
-      <Footer />
+      <section>
+        <LandingComponent />
+      </section>
+      <section>
+        <Redirect />
+      </section>
+      <section>{!loading && <Newsletters news={news.slice(0, 2)} />}</section>
+      <footer>
+        <Footer />
+      </footer>
     </main>
   );
 };

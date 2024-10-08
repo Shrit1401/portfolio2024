@@ -1,21 +1,21 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
+import Head from "next/head";
 import { Past } from "@/lib/types";
 import { getPast } from "@/lib/server";
+import Header from "@/components/Header";
 
 const PastPage = () => {
   const [past, setPast] = useState<Past[]>([]);
   const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchPast = async () => {
       try {
         const pastData = await getPast();
         console.log(pastData);
-
         setPast(pastData);
       } catch (err) {
         setError("Failed to fetch past projects.");
@@ -25,24 +25,33 @@ const PastPage = () => {
 
     fetchPast();
   }, []);
+
   if (error || past == undefined) return <div>{error}</div>;
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow mt-4 px-4 mb-8">
-        <Link
-          href="/"
-          className="text-5xl md:text-5xl font-bold hover:opacity-75 transition duration-200 ease-in-out hover:underline"
-        >
-          shrit.
-        </Link>
-        <div className="mt-10 px-4">
-          <h1 className="text-5xl md:text-5xl font-bold text-center">past</h1>
-
-          <div className="flex flex-col gap-8 mt-10">
-            {past.map((project, index) => (
-              <>
-                <div
+    <>
+      <Head>
+        <title>Past Projects - My Portfolio</title>
+        <meta
+          name="description"
+          content="A list of past projects I have worked on."
+        />
+        <meta
+          name="keywords"
+          content="portfolio, past projects, web development, software engineering"
+        />
+        <meta name="author" content="Shrit Shrivastava" />
+      </Head>
+      <main className="flex flex-col min-h-screen">
+        <section className="flex-grow mt-4 px-4 mb-8">
+          <Header />
+          <div className="mt-10 px-4">
+            <h1 className="text-5xl md:text-5xl font-bold text-center">
+              Past Projects
+            </h1>
+            <div className="flex flex-col gap-8 mt-10">
+              {past.map((project, index) => (
+                <article
                   key={index}
                   className="flex justify-between items-center text-left"
                 >
@@ -56,19 +65,16 @@ const PastPage = () => {
                     </p>
                   </div>
                   <div className="flex flex-col gap-2"></div>
-                </div>
-                {index !== past.length - 1 && (
-                  <div className="border-b-2 opacity-50 border-white/20" />
-                )}{" "}
-              </>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
+        </section>
+        <div className="px-4">
+          <Footer />
         </div>
       </main>
-      <div className="px-4">
-        <Footer />
-      </div>
-    </div>
+    </>
   );
 };
 
