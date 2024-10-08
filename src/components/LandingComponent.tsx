@@ -21,7 +21,7 @@ const LandingComponent = () => {
       const response = await submit({ email });
 
       if (response) {
-        setConfirm("You're in! 🎉");
+        setConfirm("You&apos;re in! 🎉");
       } else {
         setConfirm("Something went wrong.");
       }
@@ -37,7 +37,7 @@ const LandingComponent = () => {
       </h1>
       <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-1/2 font-[600] text-base md:text-[1.25rem] text-white/90 flex flex-col gap-5 lowercase md:leading-loose">
-          <p>i'm just a guy that loves creating things. </p>
+          <p>i&apos;m just a guy that loves creating things.</p>
           <p>
             Since I was 7, computers have been my constant passion. It all began
             with playing games on{" "}
@@ -60,13 +60,13 @@ const LandingComponent = () => {
             , exploring anything I could create with a computer.
           </p>
           <p>
-            Now at 18, my obsession with coding and creating hasn't slowed down
-            one bit. But here's the twist—building{" "}
+            Now at 18, my obsession with coding and creating hasn&apos;t slowed
+            down one bit. But here&apos;s the twist—building{" "}
             <a href="./projects" className="link">
               crazy tools
             </a>{" "}
-            is fun, but I quickly realized it’s not enough to keep the wheels
-            turning. You need to bring in some cash.
+            is fun, but I quickly realized it&apos;s not enough to keep the
+            wheels turning. You need to bring in some cash.
           </p>
           <p>
             Earlier this year, I joined an overseas agency, It was a
@@ -75,7 +75,7 @@ const LandingComponent = () => {
             <a href="./past" className="link">
               Although I eventually moved on
             </a>
-            , my passion for creating hasn’t wavered one bit.
+            , my passion for creating hasn&apos;t wavered one bit.
           </p>
           <p>
             I even started a YouTube channel to showcase all my wild ideas and
@@ -83,9 +83,9 @@ const LandingComponent = () => {
           </p>
           <p>
             I stay connected through my weekly newsletter, where I share
-            everything—from what I’m working on, to life lessons and the ups and
-            downs of my journey. Want to be a part of it? Drop your email below,
-            and I’ll send it straight to your inbox!
+            everything—from what I&apos;m working on, to life lessons and the
+            ups and downs of my journey. Want to be a part of it? Drop your
+            email below, and I&apos;ll send it straight to your inbox!
           </p>
           <form className="mt-2" onSubmit={handleSubmit}>
             <input

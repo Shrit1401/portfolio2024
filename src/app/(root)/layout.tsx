@@ -76,12 +76,11 @@ export default function RootLayout({
         />
         <meta name="twitter:image:alt" content="Shrit making cool stuff" />
         <link rel="canonical" href="https://www.shrit.in" />
-        {/* TODO: rmemove this here */}
-        {/* <script
+        <script
           defer
           src="https://cloud.umami.is/script.js"
           data-website-id="369e35b2-80fb-48ed-a840-9a68246a3c68"
-        ></script> */}
+        ></script>
       </head>
       <body className={manrope.className}>{children}</body>
     </html>
