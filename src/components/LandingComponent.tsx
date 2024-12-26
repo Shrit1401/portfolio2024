@@ -70,7 +70,7 @@ const LandingComponent = () => {
               create basic websites, and that was it — I was addicted! From
               there, I started building websites, apps,{" "}
               <a
-                href="https://www.amity.edu/ais/aisv1/ioe.asp"
+                href="https://i.imgur.com/CveUWRS.png"
                 className="link"
                 target="_blank"
                 rel="noopener noreferrer"
