@@ -31,10 +31,10 @@ const PastPage = () => {
   return (
     <>
       <Head>
-        <title>Past Projects - My Portfolio</title>
+        <title>My Life - My Portfolio</title>
         <meta
           name="description"
-          content="A list of past projects I have worked on."
+          content="my past how it looks like unfiltered."
         />
         <meta
           name="keywords"
@@ -47,7 +47,7 @@ const PastPage = () => {
           <Header />
           <div className="mt-10 px-4">
             <h1 className="text-5xl md:text-5xl font-bold text-center">
-              Past Projects
+              My Past
             </h1>
             <div className="flex flex-col gap-8 mt-10">
               {past.map((project, index) => (
