@@ -46,7 +46,16 @@ const LandingComponent = () => {
         <meta name="author" content="Shrit" />
       </Head>
       <section className="max-w-6xl mx-auto mt-3 md:mt-10 mb-10 md:mb-0">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
+        {/* a button to go to youtube channel */}
+        <a
+          href="https://www.youtube.com/@shippingshrit"
+          className="btn cursor-pointer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          my yt channel
+        </a>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 mt-8">
           Hi, I&apos;m Shrit.
         </h1>
         <div className="flex flex-col md:flex-row gap-10">
